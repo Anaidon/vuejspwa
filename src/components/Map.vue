@@ -1,11 +1,11 @@
 <template>
     <div>
-        <h1>Your Coordinates:</h1>
-        <p>{{ myCoords.lat}} Latitude, {{ myCoords.lng }} Longitude</p>
-        <h1>Map Coordinates:</h1>
-        <p>{{ mapCoords.lat}} Latitude, {{ mapCoords.lng }} Longitude</p>
-        <GmapMap :center="myCoords" :zoom="zoom" ref="mapRef" @dragend="handleDrag" style="width:100%; height:360px;" :options="mapOptions">
-            <GmapMarker :position="myCoords" />
+<!--        <h1>Your Coordinates:</h1>-->
+<!--        <p>{{ myCoords.lat}} Latitude, {{ myCoords.lng }} Longitude</p>-->
+<!--        <h1>Map Coordinates:</h1>-->
+<!--        <p>{{ mapCoords.lat}} Latitude, {{ mapCoords.lng }} Longitude</p>-->
+        <GmapMap :center="myCoords" :zoom="zoom" ref="mapRef" @dragend="handleDrag" style="width:100%; height: calc(100vh - 92px)" :options="mapOptions">
+            <GmapMarker :position="myCoords" :icon="icon" />
         </GmapMap>
 
     </div>
@@ -21,6 +21,7 @@
                     lat: 0,
                     lng: 0
                 },
+                icon: "img/marker.svg",
                 zoom: 15,
                 mapOptions: {
                     styles: [
@@ -246,5 +247,7 @@
 </script>
 
 <style scoped>
-
+    .vue-map {
+        height: calc(100vh - 92px);
+    }
 </style>
